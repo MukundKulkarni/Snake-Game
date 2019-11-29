@@ -6,25 +6,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.ActionListener;
 import java.util.Random;
 import java.io.File;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javax.sound.sampled.*;
-import java.io.*;
-import javax.swing.*;
-
-AudioInputStream as1 = AudioSystem.getAudioInputStream(new java.io.FileInputStream("chickenDance.wav"));
-               AudioFormat af = as1.getFormat();
-               Clip clip1 = AudioSystem.getClip();
-               DataLine.Info info = new DataLine.Info(Clip.class, af);
-
-               Line line1 = AudioSystem.getLine(info);
-
-               if ( ! line1.isOpen() )
-               {
-                clip1.open(as1);
-                clip1.loop(Clip.LOOP_CONTINUOUSLY);
-                clip1.start();
-               }
 
 
 public class Gameplay extends JPanel implements KeyListener, ActionListener{
@@ -62,22 +43,6 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
     private int score = 0;
     private boolean endofgame = false;
 
-    AudioInputStream as1 = AudioSystem.getAudioInputStream(new java.io.FileInputStream("clip.mp3"));
-    AudioFormat af = as1.getFormat();
-    Clip clip1 = AudioSystem.getClip();
-    DataLine.Info info = new DataLine.Info(Clip.class, af);
-
-    Line line1 = AudioSystem.getLine(info);
-
-    if ( ! line1.isOpen())
-    {
-        clip1.open(as1);
-        clip1.loop(Clip.LOOP_CONTINUOUSLY);
-        clip1.start();
-    }
-
-
-
 
     public Gameplay(){
         addKeyListener(this);
@@ -87,6 +52,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
         timer.start();
 
     }
+
     public void paint(Graphics g){
 
         if(moves == 0){
